@@ -10,7 +10,8 @@ function MainLayout()
       <div className="ms-Grid" dir="ltr">
         <div className="ms-Grid-row">
          <div className="ms-Grid-col ms-lg12">This is a placeholder for the header</div>
-          <div className="ms-Grid-col ms-lg8">This is a placeholder for the table</div>
+          <div className="ms-Grid-col ms-lg8">
+          </div>
           <div className="ms-Grid-col ms-lg4">
             <PivotControl />
           </div>
