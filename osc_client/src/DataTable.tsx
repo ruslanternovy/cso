@@ -5,14 +5,14 @@ import { DetailsList, IColumn, IGroup } from 'office-ui-fabric-react/lib/Details
 const GROUP_HEADER_HEIGHT = 140;
 const GROUP_ITEM_HEIGHT = 43;
 
-interface IDetailsListGroupedLargeExampleItem {
+interface IDataTableItem {
   key: string;
   name: string;
   value: string;
 }
 
-export default class DetailsListGroupedLargeExample extends React.Component<{}, {}> {
-  private _items: IDetailsListGroupedLargeExampleItem[];
+export default class DataTable extends React.Component<{}, {}> {
+  private _items: IDataTableItem[];
   private _groups: IGroup[];
   private _columns: IColumn[];
 
