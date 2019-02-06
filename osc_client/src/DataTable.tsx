@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { DetailsList, IColumn, IGroup } from 'office-ui-fabric-react/lib/DetailsList'
 
-const GROUP_HEADER_HEIGHT = 140;
-const GROUP_ITEM_HEIGHT = 43;
+const GROUP_HEADER_HEIGHT = 40;
+const GROUP_ITEM_HEIGHT = 35;
 
 interface IDataTableItem {
   key: string;
@@ -47,6 +47,7 @@ export default class DataTable extends React.Component<{}, {}> {
   public render() {
     return (
       <DetailsList
+        compact={true}
         items={this._items}
         groups={this._groups}
         columns={this._columns}
