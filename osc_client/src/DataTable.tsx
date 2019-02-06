@@ -61,5 +61,5 @@ export default class DataTable extends React.Component<{}, {}> {
 
   private _getGroupHeight = (group: IGroup) => {
     return GROUP_HEADER_HEIGHT + (group.isCollapsed ? 0 : GROUP_ITEM_HEIGHT * group.count);
-  };
+  }
 }
