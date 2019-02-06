@@ -52,6 +52,7 @@ export default class DataTable extends React.Component<{}, {}> {
         groups={this._groups}
         columns={this._columns}
         getGroupHeight={this._getGroupHeight}
+        // TODO: remove next two lines?
         ariaLabelForSelectAllCheckbox="Toggle selection for all items"
         ariaLabelForSelectionColumn="Toggle selection"
       />
