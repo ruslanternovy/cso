@@ -1,32 +1,49 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { DetailsList, IColumn, IGroup } from 'office-ui-fabric-react/lib/DetailsList'
+import { DetailsList, IColumn, IGroup } from 'office-ui-fabric-react';
 
 const GROUP_HEADER_HEIGHT = 40;
-const GROUP_ITEM_HEIGHT = 35;
+const GROUP_ITEM_HEIGHT = 30;
 
-interface IDataTableItem {
+const _columns: IColumn[] = [
+  {
+    key: 'name',
+    name: 'Name',
+    fieldName: 'name',
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true
+  },
+  {
+    key: 'value',
+    name: 'Value',
+    fieldName: 'value',
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true
+  }
+];
+
+interface IDetailsListGroupedLargeExampleItem {
   key: string;
   name: string;
   value: string;
 }
 
+const _items: IDetailsListGroupedLargeExampleItem[] = [];
+for (let i = 0; i < 1000; i++) {
+  _items.push({
+    key: i.toString(),
+    name: 'Item ' + i,
+    value: i.toString()
+  });
+}
+
 export default class DataTable extends React.Component<{}, {}> {
-  private _items: IDataTableItem[];
   private _groups: IGroup[];
-  private _columns: IColumn[];
 
   constructor(props: {}) {
     super(props);
-
-    this._items = [];
-    for (let i = 0; i < 1000; i++) {
-      this._items.push({
-        key: i.toString(),
-        name: 'Item ' + i,
-        value: i.toString()
-      });
-    }
 
     this._groups = [];
     for (let i = 0; i < 10; i++) {
@@ -37,22 +54,16 @@ export default class DataTable extends React.Component<{}, {}> {
         count: 100
       });
     }
-
-    this._columns = [
-      { key: 'name', name: 'Name', fieldName: 'name', minWidth: 100, maxWidth: 200, isResizable: true },
-      { key: 'value', name: 'Value', fieldName: 'value', minWidth: 100, maxWidth: 200, isResizable: true }
-    ];
   }
 
   public render() {
     return (
       <DetailsList
         compact={true}
-        items={this._items}
+        items={_items}
         groups={this._groups}
-        columns={this._columns}
+        columns={_columns}
         getGroupHeight={this._getGroupHeight}
-        // TODO: remove next two lines?
         ariaLabelForSelectAllCheckbox="Toggle selection for all items"
         ariaLabelForSelectionColumn="Toggle selection"
       />
@@ -61,5 +72,5 @@ export default class DataTable extends React.Component<{}, {}> {
 
   private _getGroupHeight = (group: IGroup) => {
     return GROUP_HEADER_HEIGHT + (group.isCollapsed ? 0 : GROUP_ITEM_HEIGHT * group.count);
-  }
+  };
 }
