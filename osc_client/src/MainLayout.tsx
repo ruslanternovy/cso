@@ -4,6 +4,7 @@ import PivotControl from './PivotControl'
 
 import 'office-ui-fabric-react/dist/css/fabric.css'
 
+/* Component that contains a layout with main components */
 function MainLayout()
 {
   return (

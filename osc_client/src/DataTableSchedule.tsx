@@ -1,3 +1,7 @@
+/*
+  This file should be a replacement to the DataTable.tsx
+  This comment is to be removed once DataTable.tsx substituted
+*/
 import * as React from 'react';
 
 import { DetailsList, IColumn, IGroup } from 'office-ui-fabric-react';
@@ -7,17 +11,17 @@ const GROUP_ITEM_HEIGHT = 30;
 
 const _columns: IColumn[] = [
   {
-    key: 'name',
-    name: 'Name',
-    fieldName: 'name',
+    key: 'task',
+    name: 'Task',
+    fieldName: 'task',
     minWidth: 100,
     maxWidth: 200,
     isResizable: true
   },
   {
-    key: 'value',
-    name: 'Value',
-    fieldName: 'value',
+    key: 'subTask',
+    name: 'Subtask',
+    fieldName: 'subTask',
     minWidth: 100,
     maxWidth: 200,
     isResizable: true
@@ -38,17 +42,13 @@ for (let i = 0; i < 1000; i++) {
     value: i.toString()
   });
 }
-/* Initial data component */
+
 export default class DataTable extends React.Component<{}, {}> {
   private _groups: IGroup[];
 
   constructor(props: {}) {
     super(props);
-    /*
-      ToDo: create a list of groups
-      in a separate function
-      based on relation index in the data table
-    */
+
     this._groups = [];
     for (let i = 0; i < 10; i++) {
       this._groups.push({
